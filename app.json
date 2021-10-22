@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "filips_app",
+    "slug": "filips_app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "filips_app"
+}
