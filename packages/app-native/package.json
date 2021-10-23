@@ -1,4 +1,7 @@
 {
+  "name": "@filips_app/app-native",
+  "version": "0.0.0",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "android": "expo run:android",
@@ -24,6 +27,5 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
-  },
-  "private": true
+  }
 }

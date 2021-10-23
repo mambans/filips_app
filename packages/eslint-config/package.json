@@ -1,0 +1,13 @@
+{
+  "name": "@filips_app/eslint-config",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "2.4.1",
+    "prettier-eslint": "^12.0.0"
+  }
+}

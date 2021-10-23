@@ -1,0 +1,8 @@
+{
+  "name": "@filips_app/tsconfig",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "typescript": "^4.4.4"
+  }
+}
