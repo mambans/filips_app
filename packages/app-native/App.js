@@ -6,17 +6,20 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import MyDrawer from './pages/routes/DrawerNavigation';
 import Colors from './variables/Colors';
 import { NavigationContainer } from '@react-navigation/native';
+import { AuthProvider } from './Auth/AuthContext';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.container}>
-        <NavigationContainer>
-          <MyDrawer />
-          <StatusBar style='auto' />
-        </NavigationContainer>
-      </ScrollView>
-    </SafeAreaView>
+    <AuthProvider>
+      <SafeAreaView style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container}>
+          <NavigationContainer>
+            <MyDrawer />
+            <StatusBar style='auto' />
+          </NavigationContainer>
+        </ScrollView>
+      </SafeAreaView>
+    </AuthProvider>
   );
 }
 

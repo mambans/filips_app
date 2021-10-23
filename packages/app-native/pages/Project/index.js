@@ -6,13 +6,11 @@ import Colors from '../../variables/Colors';
 
 const Project = ({ route, navigation }) => {
   const { project } = route?.params || {};
-  console.log('project:', project);
   const [searchInput, setSearchInput] = useState();
-  const [address, setAddress] = useState(project.address);
-  console.log('address:', address);
-  const [cusomerName, setCusomerName] = useState(project.cusomerName);
-  const [customerPhoneNumber, setCustomerPhoneNumber] = useState(project.customerPhoneNumber);
-  const [customerEmail, setCustomerEmail] = useState(project.customerEmail);
+  const [address, setAddress] = useState(project?.address);
+  const [cusomerName, setCusomerName] = useState(project?.cusomerName);
+  const [customerPhoneNumber, setCustomerPhoneNumber] = useState(project?.customerPhoneNumber);
+  const [customerEmail, setCustomerEmail] = useState(project?.customerEmail);
 
   const handleCreate = () => {
     console.log({
@@ -25,9 +23,9 @@ const Project = ({ route, navigation }) => {
 
   const handleSearchChange = (v) => setSearchInput(v);
 
-  if (!project) {
+  if (!project || Object.keys(project).length) {
     return (
-      <View>
+      <ScrollView contentContainerStyle={styles.container}>
         <Button
           buttonStyle={{}}
           containerStyle={{ marginVertical: 25 }}
@@ -46,7 +44,7 @@ const Project = ({ route, navigation }) => {
           inputContainerStyle={styles.inputContainerStyle}
           onBlur={() => console.log('onBlur')}
         />
-      </View>
+      </ScrollView>
     );
   }
 
