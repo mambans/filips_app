@@ -1,5 +1,5 @@
 import kebabCase from 'lodash.kebabcase'
-import { Construct } from '@aws-cdk/core'
+import { Construct, RemovalPolicy } from '@aws-cdk/core'
 import { UserPool, UserPoolClientIdentityProvider } from '@aws-cdk/aws-cognito'
 
 export class Auth extends Construct {
@@ -11,10 +11,20 @@ export class Auth extends Construct {
     super(scope, id)
 
     /** @readonly */
-    this.userPool = new UserPool(this, `${id}UserPool`)
+    this.userPool = new UserPool(this, 'UserPool', {
+      standardAttributes: {
+        fullname: { mutable: true, required: true },
+      },
+      removalPolicy:
+        process.env.NODE_ENV === 'production'
+          ? RemovalPolicy.SNAPSHOT
+          : RemovalPolicy.DESTROY,
+    })
 
     this.userPool.addDomain('CognitoDomain', {
-      cognitoDomain: { domainPrefix: kebabCase(id) },
+      cognitoDomain: {
+        domainPrefix: kebabCase(`${process.env.APP_STACK_NAME}${id}`),
+      },
     })
 
     if (process.env.NODE_ENV !== 'production') {

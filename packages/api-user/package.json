@@ -1,0 +1,21 @@
+{
+  "name": "@filips_app/api-user",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "bundler-api",
+    "lint": "tsc && eslint --ignore-path ../../.gitignore ."
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.38.0",
+    "@aws-sdk/util-dynamodb": "^3.38.0"
+  },
+  "devDependencies": {
+    "@filips_app/bundler-api": "^0.0.0",
+    "@filips_app/eslint-config": "^0.0.0",
+    "@filips_app/tsconfig": "^0.0.0",
+    "@filips_app/types": "^0.0.0",
+    "@types/node": "^16.11.4"
+  }
+}

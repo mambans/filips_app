@@ -1,0 +1,6 @@
+{
+  "name": "@filips_app/types",
+  "version": "0.0.0",
+  "private": true,
+  "main": "src/index.d.ts"
+}

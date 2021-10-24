@@ -1,4 +1,5 @@
 import { Stack as BaseStack } from '@aws-cdk/core'
+import { Api } from './construct/Api.js'
 import { Auth } from './construct/Auth.js'
 
 export class Stack extends BaseStack {
@@ -10,6 +11,8 @@ export class Stack extends BaseStack {
   constructor(scope, id, props) {
     super(scope, id, props)
 
-    new Auth(this, `${id}Auth`)
+    const auth = new Auth(this, 'Auth')
+
+    new Api(this, 'Api', { userPool: auth.userPool })
   }
 }
